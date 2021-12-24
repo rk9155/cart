@@ -2,15 +2,15 @@ import React from 'react';
 
 class CartItem extends React.Component {
 
-    constructor(){
-        super();
-        this.state = {
-            price: 99,
-            title:'Phone',
-            qty: 1,
-            img :''
-        }
-    }
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         price: 99,
+    //         title:'Phone',
+    //         qty: 1,
+    //         img :''
+    //     }
+    // }
 
     increaseQuantity = () => {
         // console.log('this',this.state);
@@ -50,9 +50,14 @@ class CartItem extends React.Component {
                 </div>
 
                 <div className="right-block">
-                    <div style={ { fontSize:25 } }>{this.state.title}</div>
-                    <div style={ { color:'grey' } }>Price: {this.state.price}</div>
-                    <div style={ { color:'grey' } }>Quantity: {this.state.qty}</div>
+                    {/* <div style={ { fontSize:25 } }>{this.state.title}</div> */}
+                    <div style={ { fontSize:25 } }>{this.props.product.title}</div>
+
+                    {/* <div style={ { color:'grey' } }>Price: {this.state.price}</div> */}
+                    <div style={ { color:'grey' } }>Price: {this.props.product.price}</div>
+
+                    {/* <div style={ { color:'grey' } }>Quantity: {this.state.qty}</div> */}
+                    <div style={ { color:'grey' } }>Quantity: {this.props.product.qty}</div>
 
                     <div className="cart-item-actions">
                         {/*Button*/}
