@@ -12,7 +12,7 @@ class CartItem extends React.Component {
     //     }
     // }
 
-    increaseQuantity = () => {
+    // increaseQuantity = () => {
         // console.log('this',this.state);
 
         // set State form 1 (if previous state is not required we can use it)
@@ -22,25 +22,25 @@ class CartItem extends React.Component {
 
         // set State form 2 (if previous state is required we can use it)
 
-        this.setState((previousState)=> {
-            return{
-                qty: previousState.qty+1
-            }
-        });
-    }
+    //     this.setState((previousState)=> {
+    //         return{
+    //             qty: previousState.qty+1
+    //         }
+    //     });
+    // }
 
-    decreaseQuantity = () => {
+    // decreaseQuantity = () => {
 
-        if(this.state.qty === 0){
-            return;
-        }
+    //     if(this.state.qty === 0){
+    //         return;
+    //     }
         
-        this.setState((previousState)=> {
-            return{
-                qty: previousState.qty-1
-            }
-        });
-    }
+    //     this.setState((previousState)=> {
+    //         return{
+    //             qty: previousState.qty-1
+    //         }
+    //     });
+    // }
 
     render(){
         return (
@@ -68,14 +68,17 @@ class CartItem extends React.Component {
 
                             /* onClick={this.increaseQuantity.bind(this)} */
 
-                            onClick={this.increaseQuantity}
+                            // onClick={this.increaseQuantity}
+
+                            onClick = {()=> this.props.OnIncreaseQuantity(this.props.product)}
                         />
                         <img 
                             alt="decrease" 
                             className="action-icons" 
                             src="https://cdn-icons-png.flaticon.com/512/992/992683.png" 
 
-                            onClick={this.decreaseQuantity}
+                            // onClick={this.decreaseQuantity}
+                            onClick = {()=> this.props.OnDecreaseQuantity(this.props.product)}
                         />
                         <img 
                             alt="delete" 
