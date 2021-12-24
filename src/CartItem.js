@@ -11,6 +11,37 @@ class CartItem extends React.Component {
             img :''
         }
     }
+
+    increaseQuantity = () => {
+        // console.log('this',this.state);
+
+        // set State form 1 (if previous state is not required we can use it)
+        // this.setState({
+        //     qty: this.state.qty+1
+        // });
+
+        // set State form 2 (if previous state is required we can use it)
+
+        this.setState((previousState)=> {
+            return{
+                qty: previousState.qty+1
+            }
+        });
+    }
+
+    decreaseQuantity = () => {
+
+        if(this.state.qty === 0){
+            return;
+        }
+        
+        this.setState((previousState)=> {
+            return{
+                qty: previousState.qty-1
+            }
+        });
+    }
+
     render(){
         return (
             <div className="cart-item">
@@ -25,9 +56,27 @@ class CartItem extends React.Component {
 
                     <div className="cart-item-actions">
                         {/*Button*/}
-                        <img alt="increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/1828/1828926.png" />
-                        <img alt="decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992683.png" />
-                        <img alt="delete" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" />
+                        <img 
+                            alt="increase" 
+                            className="action-icons" 
+                            src="https://cdn-icons-png.flaticon.com/512/1828/1828926.png" 
+
+                            /* onClick={this.increaseQuantity.bind(this)} */
+
+                            onClick={this.increaseQuantity}
+                        />
+                        <img 
+                            alt="decrease" 
+                            className="action-icons" 
+                            src="https://cdn-icons-png.flaticon.com/512/992/992683.png" 
+
+                            onClick={this.decreaseQuantity}
+                        />
+                        <img 
+                            alt="delete" 
+                            className="action-icons" 
+                            src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" 
+                        />
                     </div>
                 </div>
             </div>
